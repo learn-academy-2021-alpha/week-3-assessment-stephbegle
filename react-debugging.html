@@ -66,6 +66,7 @@
             flexDirection: "row",
             flexWrap: "wrap"
           }
+
           let cardStyles = {
             border: "1px solid black",
             width: "70px",
@@ -73,27 +74,31 @@
             margin: "10px",
             padding: "10px"
           }
+
           return(
             <>
-              <button onClick={}>
+              <button onClick={ this.drawCard /*this.drawCard was missing from here*/}>
                 Click to Draw a Card
               </button>
-              <button onClick={ shuffle }>
+              <button onClick={ this.shuffle /*this. was missing from here*/}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={ handStyles }>
                 { this.props.hand.map((card, index) => {
                   return (
                     <div style={ cardStyles } key={ index }>
-                      { card }
+                      { this.card /*this. ?*/}
                     </div>
                   )
                 })}
               </div>
             </>
           )
+          // line 80 needed drawCard inside the empty { } to call the method on the click
         }
       }
+
+      
 
 
 
