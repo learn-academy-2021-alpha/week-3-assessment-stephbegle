@@ -38,7 +38,7 @@
 
           if(hand.indexOf(draw) === -1){
             // if the draw is not already in the hand, set the state ( add the card to your hand )
-            this.setState({ hand: [...this.state.hand, draw]}) /* FIRST ERROR: this line required 'this.state.' added to hand */
+            this.setState({ hand: [...this.state.hand, draw]}) /* FIRST BUG: this line required 'this.state.' added to hand */
             // spread operator keeps the current values of hand in the array in state and then adds the next draw into the array (hand)
           } else if(hand.length !== 52){
             this.drawCard()
@@ -58,7 +58,7 @@
               <Card
                 drawCard={ this.drawCard }
                 shuffle={ this.shuffle }
-                hand={ this.state.hand } /* SECOND ERROR: added property for hand, which was missing entirely */
+                hand={ this.state.hand } /* SECOND BUG: added property for hand, which was missing entirely */
               />
             </>
           )
@@ -83,10 +83,10 @@
 
           return(
             <>
-              <button onClick={ this.props.drawCard /* THIRD ERROR: 'this.props.drawCard' was missing */}>
+              <button onClick={ this.props.drawCard /* THIRD BUG: 'this.props.drawCard' was missing */}>
                 Click to Draw a Card
               </button>
-              <button onClick={ this.props.shuffle /* FOURTH ERROR: 'this.props' was missing */}>
+              <button onClick={ this.props.shuffle /* FOURTH BUG: 'this.props' was missing */}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={ handStyles }>
