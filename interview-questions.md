@@ -67,8 +67,8 @@ https://reactjs.org/docs/fragments.html#short-syntax
   Researched answer: responsive UI is a desigin approach that allows content and layout in a web application to be flexible to the point that the layout/content adjusts its layout to stretch or condense on different screen sizes. Which means the layout will adjust in a way that fills the space of whatever screen size is being used. This contrasts adaptive view which works with absolute units (e.g., pixels) on separate versions (mobile version, tablet version, computer screen version).
   Three options:
     1. Media queries - allow you to design different layouts for different 'media' types like, screen, tv, handheld devices, etc. A media type declaration is required, along with the features belonging to that specific media type (the feature expressions evaluate to true or false depending on which media device you are using). If the media type is a hand-held device, such as a phone or a tablet, the features would provide limits that tell the code to either shrink or expand the layout/content if certain conditions are met. 
-    2. Fluid grids - layout coded in relative proportion of the various elements it contains (as opposed to coded with fixed pixel values). All of the content that is coded is not given a fixed size, but a percentaged size that changes according to the device being used. 
-    3. Flexible images - again sizing here is not fixed, the size is determined with a percentage depending on the screen size. An image could be chopped off on a mobile view if the size is not specified to take up 100% of the space (page). 
+    2. Fluid grids - layout coded in relative proportion of the various elements it contains (as opposed to coded with fixed pixel values). All of the content is not given a fixed size, but a percentaged size that changes according to the device being used. 
+    3. Flexible images - again sizing here is not fixed, the size is determined with a percentage so that the size reflects the device it is being viewed on. An image could be chopped off on a mobile view if the size is not specified to take up no more than 100% of the space (page). 
 
   https://www.interaction-design.org/literature/topics/responsive-design#:~:text=Responsive%20design%20is%20a%20graphic,ensure%20content%20consistency%20across%20devices.
 
@@ -117,11 +117,34 @@ https://reactjs.org/docs/components-and-props.html
 
 
 ## Looking Ahead: Terms for Next Week
-- Ruby - object oriented language 
 
-- Object oriented programming - OOP is a programming paradigm based on the concept of objects. They can contain anything from data to procedures translated into code. 
+- Ruby - object oriented language, dynamic, open source. It uses garbage collection (automatic memory management) which means it attempts to reclaim memory (or garbage) from objects that are no longer being used. It supports multiple programming paradigms like procedural, OOP, and functional. It was created by Yukihiro Matsumoto or 'Matz' in Japan around the mid-1990s. Matz stated that the language was designed to be fun and productive! Used for both back and front end purposes. It is scripted, meaning it's an interpreted language rather than a compiled one.
 
-- RSpec -
-- Instance variable -
-- Ruby blocks -
-- Ruby hashes -
+https://en.wikipedia.org/wiki/Ruby_(programming_language)
+https://careerkarma.com/blog/what-is-ruby-used-for/
+
+- Object oriented programming - OOP is a programming paradigm based on the concept of objects. They can contain anything from data to procedures or both. The great thing about OOP is how mutable, reusable, and simple it can transform code to be as opposed to procedural or structual programmming. OOP is better organized and because of that, objects can be accessed and modified without other objects being affected by any certain changes. 
+  4 main concepts:
+  1. Encapsulation - objects can keep their properties and methods private within classes. No other objects can access the properties in a class unless specifically specified. The properties and methods can be accessed and called whenever the class wants, and nothing else would be affected by this since it would be a private change (encapsulated). 
+  2. Abstraction - the magic behind what is happening. Under the hood the code is doing what we tell it to do but we dont know exactly how it is happening, we just know that it is doing its job. It holds so much information we would want to access at some point, and allows us to do so whenever we'd like. 
+  3. Inheritance - creating new code or objects using the same principles used in another object. Helps us reuse code and avoid redundencies. Classes are best examples of this, we can inherit certain traits from a class we already have, and make another one to build off of, without having to rewrite the same exact code, we would just reference the already written code. 
+  4. Polymorphism - technique that allows you to get rid of long if/else or switch/case statements. You can call a parent method on multiple child classes, and have that parent method work specifically for each class that was called, this is not a universal functionality, but a tailored one for the specific classes. 
+
+https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260/
+
+- RSpec - testing tool in Ruby created for behavior-driven development (BDD). Testing library for Ruby (most frequently used in production applications). Even though it has a very strong DSL (domain-specific language), at its core it is very simple to use. 
+
+https://semaphoreci.com/community/tutorials/getting-started-with-rspec#:~:text=RSpec%20is%20a%20testing%20tool,can%20start%20using%20rather%20quickly.
+
+- Instance variable - variable type whos name starts with the @ symbol and whos content is restricted to whatever the object itself refers to. They live in, and are visible everywhere in the object's scope. You can create multiple instances within a class and mutate them separately without affecting the other instances. Other variables in Ruby are global, local, and class variables.
+
+https://www.geeksforgeeks.org/instance-variables-in-ruby/
+https://www.rubyguides.com/2019/07/ruby-instance-variables/
+
+- Ruby blocks - anonymous functions (doesn't have a name or belong to any object) that can be passed into methods. They are enclosed in a do/end statement or between brackets {}, and can have multiple arguments. It allows you to save a bit of logic and use it later. Blocks can only be created by passing them to a method when the method is called.
+
+http://ruby-for-beginners.rubymonstas.org/blocks.html
+
+- Ruby hashes - collection of key-value pairs. They are created using 'hash rockets' or '=> the fat arrow'... { "one" => "deux" }
+
+http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html

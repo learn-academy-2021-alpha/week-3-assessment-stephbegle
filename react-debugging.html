@@ -36,11 +36,11 @@
           let draw = `${rank[Math.floor(Math.random() * rank.length)]} ${suit[Math.floor(Math.random() * suit.length)]}`
           // the draw is a random index of both suit and rank that gives us a random card draw
 
-          if(hand.indexOf(draw) === -1){
+          if (hand.indexOf(draw) === -1){
             // if the draw is not already in the hand, set the state ( add the card to your hand )
             this.setState({ hand: [...this.state.hand, draw]}) /* FIRST BUG: this line required 'this.state.' added to hand */
             // spread operator keeps the current values of hand in the array in state and then adds the next draw into the array (hand)
-          } else if(hand.length !== 52){
+          } else if (hand.length !== 52){
             this.drawCard()
           } else {
             alert("All cards have been dealt.")
@@ -66,6 +66,7 @@
       }
 
       class Card extends React.Component{
+
         render(){
           let handStyles = {
             display: "flex",
@@ -86,7 +87,7 @@
               <button onClick={ this.props.drawCard /* THIRD BUG: 'this.props.drawCard' was missing */}>
                 Click to Draw a Card
               </button>
-              <button onClick={ this.props.shuffle /* FOURTH BUG: 'this.props' was missing */}>
+              <button onClick={ this.props.shuffle /* FOURTH BUG: 'this.props.' was missing from shuffle */}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={ handStyles }>
