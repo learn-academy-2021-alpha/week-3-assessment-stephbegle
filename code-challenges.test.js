@@ -58,6 +58,10 @@ describe("When fibonacciSeq is fed a number and is called,", () => {
 
 const fibonacciSeq = (arrayLength) => {
 
+    if(arrayLength < 2){
+        return "You won't get the full picture of the sequence with that low of a number ¯l_(ツ)_/¯ ... enter a number greater than 2!"
+    }
+
     var array = [1, 1];
     // starting out the array of fibbonacci sequence
 
@@ -79,9 +83,9 @@ const fibonacciSeq = (arrayLength) => {
 }
 
 console.log(fibonacciSeq(6))
-console.log(fibonacciSeq(10))
+console.log(fibonacciSeq(1))
 
-// another way, viewing numbers in hash table
+// another way but with being able to view the sequence in hash table
 // const fib = (number) => {
 
 //     let len = number;
@@ -212,7 +216,7 @@ const midLetter = (word) => {
 
     let length = word.length;
     // determine the length of the word 
-
+    
     let middle = length / 2;
     // determine the middle of the word
 
@@ -279,7 +283,7 @@ const climbingSum = (array) => {
     let result = [];
 
     if(array.length === 0){
-        
+
         return [];
     }
     // if the fed array is empty, return an empty array
@@ -300,3 +304,23 @@ const climbingSum = (array) => {
 }
 console.log(climbingSum(numbersToAdd1))
 console.log(climbingSum(numbersToAdd2))
+
+// using higher-order-function
+// const climber = (array) => {
+    
+//     let climbArr = [];
+//     let sumation = 0;
+
+//     array.forEach(value => {
+
+//         sumation = sumation + value;
+//         // the sumation variable becomes the product of its sum with value, so the next value will be added to its previous product
+
+//         climbArr.push(sumation)
+//     })
+
+//     return climbArr
+// }
+
+// console.log(climber(numbersToAdd1))
+// console.log(climber(numbersToAdd2))
