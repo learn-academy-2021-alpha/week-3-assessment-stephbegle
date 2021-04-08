@@ -29,13 +29,18 @@
         }
 
         drawCard = () => {
+
           const { hand } = this.state
           let suit = ["❤️", "♦️", "♠️", "♣️"]
           let rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
           let draw = `${rank[Math.floor(Math.random() * rank.length)]} ${suit[Math.floor(Math.random() * suit.length)]}`
-          if(hand.indexOf(draw) === -1){
-            this.setState({ hand: [...hand, draw]})
-          } else if(hand.length !== 52){
+          // the draw is a random index of both suit and rank that gives us a random card draw
+
+          if (hand.indexOf(draw) === -1){
+            // if the draw is not already in the hand, set the state ( add the card to your hand )
+            this.setState({ hand: [...this.state.hand, draw]}) /* FIRST BUG: this line required 'this.state.' added to hand */
+            // spread operator keeps the current values of hand in the array in state and then adds the next draw into the array (hand)
+          } else if (hand.length !== 52){
             this.drawCard()
           } else {
             alert("All cards have been dealt.")
@@ -53,6 +58,7 @@
               <Card
                 drawCard={ this.drawCard }
                 shuffle={ this.shuffle }
+                hand={ this.state.hand } /* SECOND BUG: added property for hand, which was missing entirely */
               />
             </>
           )
@@ -60,12 +66,14 @@
       }
 
       class Card extends React.Component{
+
         render(){
           let handStyles = {
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap"
           }
+
           let cardStyles = {
             border: "1px solid black",
             width: "70px",
@@ -73,12 +81,13 @@
             margin: "10px",
             padding: "10px"
           }
+
           return(
             <>
-              <button onClick={}>
+              <button onClick={ this.props.drawCard /* THIRD BUG: 'this.props.drawCard' was missing */}>
                 Click to Draw a Card
               </button>
-              <button onClick={ shuffle }>
+              <button onClick={ this.props.shuffle /* FOURTH BUG: 'this.props.' was missing from shuffle */}>
                 Return Cards and Shuffle Deck
               </button>
               <div style={ handStyles }>
@@ -94,8 +103,6 @@
           )
         }
       }
-
-
 
       // No need to change anything below this line
       const domContainer = document.querySelector('#react-container')
